@@ -58,5 +58,5 @@ K=95
 r=0.03
 n=5
 
-result = BinEuroCall(S0, K, r, sigma, T, n)
+%!test assert (BinEuroCall(100, 95, 0.03, 0.2, 1.1, 5), 12.867, -2000000000000*eps) # relative error
 
