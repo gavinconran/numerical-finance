@@ -19,36 +19,36 @@ n_min = 100; % min number of time steps
 n_max = 5000; % max number of time steps
 delta_n = 20;
 
-### k < 90
+%%% k < 90
 K=85;
 
-# blsprice is a function of the financial package
-#[BS_C,BS_P] = blsprice(S0, K, r, T, sigma);
-# compute analytically the price of a European Call and Put option for K=95
+% blsprice is a function of the financial package
+%[BS_C,BS_P] = blsprice(S0, K, r, T, sigma);
+% compute analytically the price of a European Call and Put option for K=95
 [BS_C, BS_P] = bscall(S0, K, r, sigma, T);
 
-# Compute number of steps
+% Compute number of steps
 steps = ((n_max-n_min)/delta_n)+1;
-# Create a vector of number of steps
+% Create a vector of number of steps
 num_steps = linspace(n_min,n_max, steps); 
-# Initialise the vector of Option Prices
+% Initialise the vector of Option Prices
 BinomPrices = zeros(1, length(num_steps));
 
-# For each number of steps compute the Option Price
-# Compute for even and odd step numbers
+% For each number of steps compute the Option Price
+% Compute for even and odd step numbers
 index = 1;
 for n_even = num_steps
     n_odd = n_even + 1;
     delta_T_even = T / n_even;
     delta_T_odd = T / n_odd;
     BinomPrices_even(index) = BinEuroCall(S0, K, r, sigma, T, n_even); 
-    #BinomPrices_even(index) = binPriceCRR(K,S0,r,sigma,delta_T_even, n_even,'CALL',false);
+    %BinomPrices_even(index) = binPriceCRR(K,S0,r,sigma,delta_T_even, n_even,'CALL',false);
     BinomPrices_odd(index) = BinEuroCall(S0, K, r, sigma, T, n_odd); 
-    #BinomPrices_odd(index) = binPriceCRR(K,S0,r,sigma,delta_T_odd, n_odd,'CALL',false);
+    %BinomPrices_odd(index) = binPriceCRR(K,S0,r,sigma,delta_T_odd, n_odd,'CALL',false);
     index = index + 1;
 end;
 
-% Plot for K = 100    
+% Plot for K = 90    
 figure(1)                                              
 plot(num_steps, BinomPrices_even,'-', num_steps, BinomPrices_odd, '-', num_steps, ones(1,length(num_steps))*BS_C, '-');
 xlabel('Number of Nodes (N)');
@@ -56,32 +56,32 @@ ylabel('Option Price');
 title('Convergence of CRR price to BSM as a function of N. K < 90');
 legend('Approx Price (Even)  ', 'Approx Price (Odd)  ', 'Analytic Price  ');
 
-### k = 100
+%%% k = 100
 K=100;
 
-# blsprice is a function of the financial package
-#[BS_C,BS_P] = blsprice(S0, K, r, T, sigma);
-# compute analytically the price of a European Call and Put option for K=95
+% blsprice is a function of the financial package
+#%BS_C,BS_P] = blsprice(S0, K, r, T, sigma);
+% compute analytically the price of a European Call and Put option for K=95
 [BS_C, BS_P] = bscall(S0, K, r, sigma, T);
 
-# Compute number of steps
+% Compute number of steps
 steps = ((n_max-n_min)/delta_n)+1;
-# Create a vector of number of steps
+% Create a vector of number of steps
 num_steps = linspace(n_min,n_max, steps); 
-# Initialise the vector of Option Prices
+% Initialise the vector of Option Prices
 BinomPrices = zeros(1, length(num_steps));
 
-# For each number of steps compute the Option Price
-# Compute for even and odd step numbers
+% For each number of steps compute the Option Price
+% Compute for even and odd step numbers
 index = 1;
 for n_even = num_steps
     n_odd = n_even + 1;
     delta_T_even = T / n_even;
     delta_T_odd = T / n_odd;
     BinomPrices_even(index) = BinEuroCall(S0, K, r, sigma, T, n_even); 
-    #BinomPrices_even(index) = binPriceCRR(K,S0,r,sigma,delta_T_even, n_even,'CALL',false);
+    %BinomPrices_even(index) = binPriceCRR(K,S0,r,sigma,delta_T_even, n_even,'CALL',false);
     BinomPrices_odd(index) = BinEuroCall(S0, K, r, sigma, T, n_odd); 
-    #BinomPrices_odd(index) = binPriceCRR(K,S0,r,sigma,delta_T_odd, n_odd,'CALL',false);
+    %inomPrices_odd(index) = binPriceCRR(K,S0,r,sigma,delta_T_odd, n_odd,'CALL',false);
     index = index + 1;
 end;
 
@@ -93,36 +93,36 @@ ylabel('Option Price');
 title('Convergence of CRR price to BSM as a function of N. K = 100');
 legend('Approx Price (Even)  ', 'Approx Price (Odd)  ', 'Analytic Price  ');
 
-### k = 110
+%%% k = 110
 K=110;
 
-# blsprice is a function of the financial package
-#[BS_C,BS_P] = blsprice(S0, K, r, T, sigma);
-# compute analytically the price of a European Call and Put option for K=95
+% blsprice is a function of the financial package
+%[BS_C,BS_P] = blsprice(S0, K, r, T, sigma);
+% compute analytically the price of a European Call and Put option for K=95
 [BS_C, BS_P] = bscall(S0, K, r, sigma, T);
 
-# Compute number of steps
+% Compute number of steps
 steps = ((n_max-n_min)/delta_n)+1;
-# Create a vector of number of steps
+% Create a vector of number of steps
 num_steps = linspace(n_min,n_max, steps); 
-# Initialise the vector of Option Prices
+% Initialise the vector of Option Prices
 BinomPrices = zeros(1, length(num_steps));
 
-# For each number of steps compute the Option Price
-# Compute for even and odd step numbers
+% For each number of steps compute the Option Price
+% Compute for even and odd step numbers
 index = 1;
 for n_even = num_steps
     n_odd = n_even + 1;
     delta_T_even = T / n_even;
     delta_T_odd = T / n_odd;
     BinomPrices_even(index) = BinEuroCall(S0, K, r, sigma, T, n_even); 
-    #BinomPrices_even(index) = binPriceCRR(K,S0,r,sigma,delta_T_even, n_even,'CALL',false);
+    %BinomPrices_even(index) = binPriceCRR(K,S0,r,sigma,delta_T_even, n_even,'CALL',false);
     BinomPrices_odd(index) = BinEuroCall(S0, K, r, sigma, T, n_odd); 
-    #BinomPrices_odd(index) = binPriceCRR(K,S0,r,sigma,delta_T_odd, n_odd,'CALL',false);
+    %BinomPrices_odd(index) = binPriceCRR(K,S0,r,sigma,delta_T_odd, n_odd,'CALL',false);
     index = index + 1;
 end;
 
-% Plot for K = 100    
+% Plot for K = 110    
 figure(3)                                              
 plot(num_steps, BinomPrices_even,'-', num_steps, BinomPrices_odd, '-', num_steps, ones(1,length(num_steps))*BS_C, '-');
 xlabel('Number of Nodes (N)');

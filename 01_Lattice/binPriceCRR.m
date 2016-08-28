@@ -1,4 +1,4 @@
-### obtained from http://www.goddardconsulting.ca/matlab-binomial-crr.html
+%%% obtained from http://www.goddardconsulting.ca/matlab-binomial-crr.html
 
 function oPrice = binPriceCRR(X,S0,r,sig,dt,steps,oType,earlyExercise)
 % Function to calculate the price of a vanilla European or American
