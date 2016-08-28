@@ -33,9 +33,8 @@ BinomPrices = zeros(1, length(num_steps));
 # For each number of steps compute the Option Price
 index = 1;
 for n = num_steps
-    delta_T = T / n;
-    #BinomPrices(index) = BinEuroCall(S0, K, r, T, sigma, n); 
-    BinomPrices(index) = binPriceCRR(K,S0,r,sigma,delta_T,n,'CALL',false);
+    BinomPrices(index) = BinEuroCall(S0, K, r, sigma, T, n); 
+    #BinomPrices(index) = binPriceCRR(K,S0,r,sigma,delta_T,n,'CALL',false);
     index = index + 1;
 end;
  
@@ -71,8 +70,10 @@ for n_even = num_steps
     n_odd = n_even + 1;
     delta_T_even = T / n_even;
     delta_T_odd = T / n_odd;
-    BinomPrices_even(index) = binPriceCRR(K,S0,r,sigma,delta_T_even, n_even,'CALL',false);
-    BinomPrices_odd(index) = binPriceCRR(K,S0,r,sigma,delta_T_odd, n_odd,'CALL',false);
+    BinomPrices_even(index) = BinEuroCall(S0, K, r, sigma, T, n_even); 
+    #BinomPrices_even(index) = binPriceCRR(K,S0,r,sigma,delta_T_even, n_even,'CALL',false);
+    BinomPrices_odd(index) = BinEuroCall(S0, K, r, sigma, T, n_odd); 
+    #BinomPrices_odd(index) = binPriceCRR(K,S0,r,sigma,delta_T_odd, n_odd,'CALL',false);
     index = index + 1;
 end;
 

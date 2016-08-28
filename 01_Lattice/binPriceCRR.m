@@ -27,10 +27,10 @@ function oPrice = binPriceCRR(X,S0,r,sig,dt,steps,oType,earlyExercise)
 % Date  : Q4, 2007
 
 % Calculate the Cox Ross Rubinstein model parameters
-a = exp(r*dt);
-u = exp(sig*sqrt(dt));
-d = 1/u;
-p = (a-d)/(u-d);
+a = exp(r*dt);          % discount rate
+u = exp(sig*sqrt(dt));  % up
+d = 1/u;                % down
+p = (a-d)/(u-d);        % martingale probability
 
 % Loop over each node and calculate the Cox Ross Rubinstein underlying price tree
 priceTree = nan(steps+1,steps+1);

@@ -1,8 +1,8 @@
-% BinEuroCall.m
+% BinAmerCall.m
 % Computes the Binomial tree call option pricing for a particular N
 
-function price = BinEuroCall(S0, K, r, sigma, T, n); 
-% Function to calculate the price of a vanilla European
+function price = BinAmerCall(S0, K, r, sigma, T, n); 
+% Function to calculate the price of a vanilla American
 % Call option using a Cox Ross Rubinstein binomial tree.
 
 % Inputs : S0 - stock price
@@ -32,7 +32,7 @@ end
 
 % Calculate the value at expiry
 valueLattice = zeros(size(lattice));
-valueLattice(:,end) = max(lattice(:,end)-K,0);
+valueLattice(:,end) = max(K-lattice(:,end),0);
 
 % Loop backwards to get values at the earlier times
 steps = size(lattice,2)-1;
@@ -58,5 +58,5 @@ K=95
 r=0.03
 n=5
 
-result = BinEuroCall(S0, K, r, sigma, T, n)
+result = BinAmerCall(S0, K, r, sigma, T, n)
 
