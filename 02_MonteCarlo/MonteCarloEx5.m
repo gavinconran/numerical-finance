@@ -33,7 +33,7 @@ for steps = Tsubs_List
     for i=1:sims
         % For each time step compute the Stock Price St 
         for j = 2:length(time_steps)            
-            Price_t(i,j) = Price_t(i,j-1) + sqrt(t)*normrnd(0,1); 
+            Price_t(i,j) = Price_t(i,j-1) + sqrt(t)*normrnd(r,sigma); 
         endfor
     endfor 
                                              
