@@ -49,14 +49,14 @@ price = valueLattice(1); #valueTree(1);
 
 endfunction
 
+%!test
+%! T=1.1;
+%! S0=100;
+%! sigma = 0.2;
+%! K=95;
+%! r=0.03;
+%! n=5;
 
-%%% TEST
-T=1.1
-S0=100
-sigma = 0.2
-K=95
-r=0.03
-n=5
-
-%!test assert (BinEuroCall(100, 95, 0.03, 0.2, 1.1, 5), 12.867, -2000000000000*eps) # relative error
+%! result = 12.867;
+%! assert (BinEuroCall(S0, K, r, sigma, T, n), result, -2000000000000*eps) # relative error
 

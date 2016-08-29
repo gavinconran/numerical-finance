@@ -9,17 +9,21 @@ clear all; close all;
 graphics_toolkit("gnuplot");
 pkg load financial
 
-% set   parameters
-S0 = 100;
-r=0.0;
-sigma=0.25;T=1.1;
+function plot = latticeEx1(S0, r, sigma, K_List, n_min, n_max, delta_n, T)
 
-% set simulation parameters
-n_min = 100; % min number of time steps
-n_max = 5000; % max number of time steps
-delta_n = 20;
+% Inputs : S0 - stock price
+%        : r - risk free interest rate
+%        : sigma - volatility
+%        : K_List - List of Strike prices
+%        : n_min - minimum number of steps used in simulation
+%        : n_max - mamimum number of steps used in simulation
+%        : delta_n - step size
+%        : T - time duration
+%
+% Output: plot - true or false
 
-K_List = [85, 100, 110];
+
+
 %%% k < 90
 %K=85;
 fig_num = 1; % update figure number for plotting
@@ -61,8 +65,24 @@ for K = K_List
     legend('Approx Price (Even)  ', 'Approx Price (Odd)  ', 'Analytic Price  ');
     fig_num += 1;
     
-endfor;   
-   
+endfor
+
+plot = true;
+
+endfunction  
+
+
+%!test
+%! S0 = 100;
+%! r=0.0;
+%! sigma=0.25;
+%! T=1.1;
+%! n_min = 100; % min number of time steps
+%! n_max = 5000; % max number of time steps
+%! delta_n = 20;
+%! K_List = [85, 100, 110];
+%! assert (latticeEx1(S0, r, sigma, K_List, n_min, n_max, delta_n, T))
+
 
 
 
