@@ -63,13 +63,13 @@ plot = true;
 
 endfunction  
 
-
+% PART 1
 S0 = 100;
 r=0.05;
 sigma=0.20;
 T=1.0;
 Tsubs_List = [10]; #[10, 100, 1000];
-sims = 10000;
+sims = 1000;
 K=100;
 MonteCarloEstimator(S0, r, sigma, Tsubs_List, T, sims);
 
