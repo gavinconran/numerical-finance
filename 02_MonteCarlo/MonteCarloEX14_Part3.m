@@ -3,19 +3,14 @@
 % Consider further a European call option with maturity T = 1 year and strike K = 100, and denote
 % C 0 (K) its value (to be determined) at inception. Determine a Monte-Carlo procedure to estimate
 % the value C 0 (K) of this call option. Use MATLAB to output the following graph:
-%%% PART 1: with 10 time subintervals, show the convergence of the estimator with respect to the number
-%%%  of simulated paths;
-%%% PART 2: with 1000 paths, show the convergence of the estimator with respect to the number of time
-%%% subintervals;
 
+%%% PART 3: with 1000 paths and 100 time subintervals, plot the function K → C 0 (K) for K = 20, . . . , 150.
 
 clear all; close all;
 graphics_toolkit("gnuplot");
 pkg load financial
 
-
-%%% PART 1
-function price = MonteCarloEstimator(S0, r, sigma, Tsubs_List, T, sims, K, fig_num)
+function plot = MonteCarloEstimator(S0, r, sigma, Tsubs_List, T, sims, K_List)
 
 % Inputs : S0 - stock price
 %        : r - risk free interest rate
@@ -48,44 +43,42 @@ for steps = Tsubs_List
     endfor 
 endfor    
 
-% Plot    
-figure(fig_num)   
-plot(num_sims, Est_Price_T);
-xlabel('Number of Simulations (Sims)');
-ylabel('Stock Price');
-str = sprintf('Convergence of Estimation wrt no. Simulated Paths');
+CallOptionPrice_K = zeros(1, length(K_List));
+index = 1;
+for K=K_List
+    CallOptionPrice_K(index++) = max(Est_Price_T(end)-K,0);
+end    
+    
+% Plot C(K) as  afunction of K   
+figure(1)   
+plot(K_List, CallOptionPrice_K);
+xlabel('Strike Price (K)');
+ylabel('Call Option Price');
+str = sprintf('Call Option Price C(K) in relation to Strike Price (K)');
 title(str); 
-ylim([50, 200]);
+ylim([-10, 110]);
 
-%Plot histogram
-figure(2)
-hist(Price_t(:,end));
-
-if fig_num == 1
-    price = Est_Price_T(end);
-else    
-    price = max(Est_Price_T(end)-K,0);
-endif    
-
+plot = true;
 endfunction  
+  
+     
 
-% PART 1
-S0 = 100;
-r=0.05;
-sigma=0.20;
-T=1.0;
-Tsubs_List = [100]; #[100, 200, 1000];
-sims = 10000;
-K=100;
-%MonteCarloEstimator(S0, r, sigma, Tsubs_List, T, sims, K, 1);
 
-%%% PART 3: with 1000 paths and 100 time subintervals, plot the function K → C 0 (K) for K = 20, . . . , 150.
 S0 = 100;
 r=0.05;
 sigma=0.20;
 T=1.0;
 Tsubs_List = [100];
 sims = 1000;
-K=20;
-MonteCarloEstimator(S0, r, sigma, Tsubs_List, T, sims, K, 3)
+
+% compute K_List
+K_min = 20; 
+K_max = 150; 
+delta_K = 10;
+steps = ((K_max-K_min)/delta_K) + 1;
+% Create a vector of number of steps
+K_List = linspace(K_min,K_max, steps); 
+%run simulation 
+MonteCarloEstimator(S0, r, sigma, Tsubs_List, T, sims, K_List, 3);
+
 
