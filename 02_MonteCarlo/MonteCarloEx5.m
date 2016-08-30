@@ -50,14 +50,14 @@ plot = true;
 
 endfunction  
 
-%!test
-%! S0 = 0;
-%! r=0.0;
-%! sigma=0.10;
-%! T=1.0;
-%! Tsubs_List = [10, 100, 1000];
-%! sims = 20;
-%! assert (MonteCarloBSPath(S0, r, sigma, Tsubs_List, T, sims))
+%%% run MonteCarloBSPath
+S0 = 0;
+r=0.0;
+sigma=1.0;
+T=1.0;
+Tsubs_List = [10, 100, 1000];
+sims = 20;
+MonteCarloBSPath(S0, r, sigma, Tsubs_List, T, sims)
 
 
 
