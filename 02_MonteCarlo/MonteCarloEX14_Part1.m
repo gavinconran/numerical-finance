@@ -65,7 +65,7 @@ xlabel('Number of Simulations (Sims)');
 ylabel('Stock Price');
 str = sprintf('Convergence of Estimation wrt no. Simulated Paths');
 title(str); 
-ylim([50, 200]);
+ylim([90, 110]);
 
 plot = true;
 endfunction  

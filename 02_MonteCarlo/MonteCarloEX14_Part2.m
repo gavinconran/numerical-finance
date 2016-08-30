@@ -59,7 +59,7 @@ xlabel('Number of Time Intervals');
 ylabel('Stock Price');
 str = sprintf('Convergence of Estimation wrt no. of Time Intervals');
 title(str); 
-ylim([50, 200]);
+ylim([90, 110]);
 
 plot = true;
 endfunction  
