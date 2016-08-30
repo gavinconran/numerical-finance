@@ -12,8 +12,6 @@ clear all; close all;
 graphics_toolkit("gnuplot");
 pkg load financial
 
-
-%%% PART 1
 function plot = MonteCarloEstimator(S0, r, sigma, Tsubs_List, T, sims, K)
 
 % Inputs : S0 - stock price

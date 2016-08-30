@@ -7,13 +7,10 @@
 %%% PART 2: with 1000 paths, show the convergence of the estimator with respect to the number of time
 %%% subintervals;
 
-
 clear all; close all;
 graphics_toolkit("gnuplot");
 pkg load financial
 
-
-%%% PART 1
 function plot = MonteCarloEstimator2(S0, r, sigma, Tsubs_List, T, sims, K)
 
 % Inputs : S0 - stock price
@@ -55,7 +52,6 @@ for steps = Tsubs_List
     index += 1;
 endfor    
 
-Price_t_interval
 % Plot Convergence of Estimation wrt Time intervals   
 figure(1)   
 plot(Tsubs_List, Price_t_interval);
