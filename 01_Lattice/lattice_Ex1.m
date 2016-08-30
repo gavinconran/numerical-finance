@@ -66,32 +66,23 @@ for K = K_List
     fig_num += 1;
     
 endfor
-BinomPrices_even(end)
+%BinomPrices_even(end)
 plot = true;
 
 endfunction  
 
+%%% run latticeEx1
 S0 = 100;
-r=0.05;
-sigma=0.20;
-T=1.0;
+r=0.0;
+sigma=0.25;
+T=1.1;
 n_min = 100; % min number of time steps
 n_max = 5000; % max number of time steps
 delta_n = 20;
 sims = 1000;
-K_List=[100];
+K_List = [85, 100, 110];
 latticeEx1(S0, r, sigma, K_List, n_min, n_max, delta_n, T)
 
-%!test
-%! S0 = 100;
-%! r=0.0;
-%! sigma=0.25;
-%! T=1.1;
-%! n_min = 100; % min number of time steps
-%! n_max = 5000; % max number of time steps
-%! delta_n = 20;
-%! K_List = [85, 100, 110];
-%! assert (latticeEx1(S0, r, sigma, K_List, n_min, n_max, delta_n, T))
 
 
 
