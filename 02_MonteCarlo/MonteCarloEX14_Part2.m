@@ -21,9 +21,12 @@ function plot = MonteCarloEstimator2(S0, r, sigma, Tsubs_List, T, sims, K)
 %        : sigma - volatility
 %        : Tsubs_List - List of number of Time sub intervals
 %        : T - time duration
+%        : sims - number of simulations
+%        : K - Strike Price
 %
 % Output: plot - true or false
 
+% compute simulations
 Price_t_interval = zeros(1, length(Tsubs_List));
 index = 1;
 for steps = Tsubs_List
