@@ -50,7 +50,7 @@ endfor
 CallOptionPrice_K = zeros(1, length(K_List));
 index = 1;
 for K=K_List
-    CallOptionPrice_K(index++) = max(Est_Price_T(end)-K,0);
+    CallOptionPrice_K(index++) = exp(-r*T)*max(Est_Price_T(end)-K,0);
 end    
     
 % Plot C(K) as  afunction of K   
