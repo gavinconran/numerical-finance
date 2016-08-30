@@ -1,4 +1,4 @@
-% 1Lattice. Exercise 14
+% 2 Monte Carlo. Exercise 14
 % Let (S t ) t≥0 follow the Black-Scholes model with r = 5%, σ = 20% and S 0 = 100.
 % Consider further a European call option with maturity T = 1 year and strike K = 100, and denote
 % C 0 (K) its value (to be determined) at inception. Determine a Monte-Carlo procedure to estimate
