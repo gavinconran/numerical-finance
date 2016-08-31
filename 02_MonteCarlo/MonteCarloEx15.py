@@ -32,7 +32,7 @@ def euler_step(U, dt, theta, sigma, K):
 
 # Construct Grid
 T = 2.0
-dt = 0.001
+dt = 0.01
 N = int(T/dt)+ 1
 
 # Initialise solution array
@@ -74,20 +74,27 @@ pyplot.show()
 num_sims = 100
 sims = range(num_sims)
 B_n = np.zeros(num_sims)
-B_Price = B_0
 for i in sims:
     # time loop - Euler method
     for n in range(0, N-1):
         U[n+1] = euler_step(U[n], dt, theta, sigma, K)
-    B_Price += U[-1]
-    B_n[i] = B_Price / (i+1) # Record the Expectation of the Bond Price for this simulation
+    B_n[i] = U[-1] #B_Price / (i+1) # Record the Expectation of the Bond Price for this simulation
 
-P_Approx = np.mean(B_n)
+P_Approx = np.mean(B_n) # Compute the Expectation of the Bond Price from average of all of the simulated Bond Prices
 print("Approx. Price: ", P_Approx)
 
 # Compute Analytic Price
 P_Analytic = analytic_B(K, sigma, theta,T, B_0)
 print("Analytic Price: ", P_Analytic)
+
+
+# Plot Histogram of Simulated Bond Prices
+pyplot.figure(figsize=(8,6))
+pyplot.xlabel(r'# simulations', fontsize=18)
+pyplot.ylabel(r'Bond Price', fontsize=18)
+pyplot.title('Histogram of Simulated Bond Prices. # sims: %d' % num_sims, fontsize=18)
+pyplot.hist(B_n, 50)
+pyplot.show()
 
 
 # Plot Convergence of Bond Prices wrt no. simulations
