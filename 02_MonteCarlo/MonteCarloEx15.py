@@ -37,7 +37,7 @@ N = int(T/dt)+ 1
 # Initialise solution array
 t = np.linspace(0, T, N)
 U = np.empty(N)
-B_0 = 10. #0.7 # 0.07
+B_0 = 0.07 # 0.07
 U[0] = B_0
 
 # Set parameters
