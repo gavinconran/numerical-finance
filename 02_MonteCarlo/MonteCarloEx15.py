@@ -60,7 +60,7 @@ for i in sims:
     for n in range(0, N-1):
         U[n+1] = euler_step(U[n], dt, theta, sigma, K)
     B_Price += U[-1]
-    pyplot.plot(t,U, 'k-', lw=2);
+    pyplot.plot(t,U, '-', lw=1);
     B_n[i] = B_Price / (i+1)
 
 pyplot.grid(True)
