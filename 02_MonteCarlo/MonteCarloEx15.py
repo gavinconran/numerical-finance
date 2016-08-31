@@ -86,9 +86,7 @@ for N in N_List:
     B[index] = U[n+1]
     index += 1
 
-
-print("Price: ", B[-1])
-
+# Plot convergence of Bond price as the number of time steps increases
 pyplot.figure(figsize=(8,6))
 pyplot.grid(True)
 pyplot.xlabel(r'number of time steps', fontsize=18)
