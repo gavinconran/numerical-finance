@@ -9,6 +9,7 @@
 import numpy as np
 import random
 from matplotlib import pyplot
+import matplotlib.mlab as mlab
 
 # function return analytic Bond Price
 def analytic_B(K, sigma, theta, T, r_0):
@@ -48,7 +49,6 @@ K = 2.1
 # Plot trajetory of Bond Prices over time (* num_sims)
 pyplot.figure(figsize=(8,6))
 
-
 num_sims = 5
 sims = range(num_sims)
 B_n = np.zeros(num_sims)
@@ -66,10 +66,9 @@ pyplot.xlabel(r't', fontsize=18)
 pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Bond Price over time, dt: %.3f, #sims: %d' % (dt, num_sims), fontsize=18)
 pyplot.plot(t, U, 'k-', lw=2);
-pyplot.show()
 
 # Convergence of Bond Price as number of simulations become large
-num_sims = 100
+num_sims = 1000
 sims = range(num_sims)
 B_n = np.zeros(num_sims)
 for i in sims:
@@ -78,8 +77,9 @@ for i in sims:
         U[n+1] = euler_step(U[n], dt, theta, sigma, K)
     B_n[i] = U[-1] #B_Price / (i+1) # Record the Expectation of the Bond Price for this simulation
 
-P_Approx = np.mean(B_n) # Compute the Expectation of the Bond Price from average of all of the simulated Bond Prices
-print("Approx. Price: ", P_Approx)
+P_Expectation = np.mean(B_n) # Compute the Expectation of the Bond Price from average of all of the simulated Bond Prices
+P_Var = np.var(B_n) 
+print("Approx. Price: ", P_Expectation)
 
 # Compute Analytic Price
 P_Analytic = analytic_B(K, sigma, theta,T, B_0)
@@ -92,7 +92,7 @@ pyplot.xlabel(r'# simulations', fontsize=18)
 pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Histogram of Simulated Bond Prices. # sims: %d' % num_sims, fontsize=18)
 pyplot.hist(B_n, 50)
-pyplot.show()
+
 
 
 # Plot Convergence of Bond Prices wrt no. simulations
@@ -103,8 +103,6 @@ pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Convergence of Bond Price wrt # simulations', fontsize=18)
 sims = [x + 1 for x in sims]
 pyplot.plot(sims, B_n, 'k-', lw=2);
-pyplot.show()
-
 
 
 # Convergence of Bond Price as number of time steps become large
