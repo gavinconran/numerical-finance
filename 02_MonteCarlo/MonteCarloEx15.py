@@ -3,7 +3,8 @@
 # of the price of the bond as the number of time steps become large.
 # K = 2.1, theta = 0.09, v_0 = 0.09, sigma = 0.1, t = 2
 
-### Does NOT include dW component in Euler_step ###
+### Include dW component in Euler_step ###
+### got some help from https://en.wikipedia.org/wiki/Euler%E2%80%93Maruyama_method
 
 import numpy as np
 import random
@@ -26,8 +27,8 @@ random.seed(1234)
 
 # function Euler step return the present solution plus a bit more
 def euler_step(U, dt, theta, sigma, K):
-    return U + dt*K*(theta-U) + sigma*np.sqrt(dt)*np.sqrt(abs(U)) *random.random() 
-
+    # abs(U) can be replace by max(U, 0): see page 52 of Antonie's notes
+    return U + dt*K*(theta-U) + sigma*np.sqrt(dt)*np.sqrt(abs(U)) * np.random.normal(0, 1) 
 
 # Construct Grid
 T = 2.0
@@ -45,12 +46,12 @@ theta = 0.09
 sigma = 0.1
 K = 2.1
 
-# Convergence of Bond Price as number of simulations become large
+# Simulation of Bond Prices
 # Plot trajetory of Bond Prices over time (* num_sims)
 pyplot.figure(figsize=(8,6))
 
 
-num_sims = 50
+num_sims = 5
 sims = range(num_sims)
 B_n = np.zeros(num_sims)
 B_Price = B_0
@@ -68,6 +69,18 @@ pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Bond Price over time, dt: %.3f, #sims: %d' % (dt, num_sims), fontsize=18)
 pyplot.plot(t, U, 'k-', lw=2);
 pyplot.show()
+
+# Convergence of Bond Price as number of simulations become large
+num_sims = 100
+sims = range(num_sims)
+B_n = np.zeros(num_sims)
+B_Price = B_0
+for i in sims:
+    # time loop - Euler method
+    for n in range(0, N-1):
+        U[n+1] = euler_step(U[n], dt, theta, sigma, K)
+    B_Price += U[-1]
+    B_n[i] = B_Price / (i+1)
 
 
 print("Approx. Price: ", B_n[-1])
@@ -90,11 +103,11 @@ pyplot.show()
 
 
 # Convergence of Bond Price as number of time steps become large
-N_List = range(2,5002, 1000)
+N_List = range(502,2002, 20)
 B = np.empty(len(N_List))
 t = np.linspace(0, T, len(N_List))
 
-num_sims = 5
+num_sims = 100
 sims = range(num_sims)
 
 sim = 0  
