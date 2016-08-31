@@ -80,10 +80,10 @@ for i in sims:
     for n in range(0, N-1):
         U[n+1] = euler_step(U[n], dt, theta, sigma, K)
     B_Price += U[-1]
-    B_n[i] = B_Price / (i+1)
+    B_n[i] = B_Price / (i+1) # Record the Expectation of the Bond Price for this simulation
 
-
-print("Approx. Price: ", B_n[-1])
+P_Approx = np.mean(B_n)
+print("Approx. Price: ", P_Approx)
 
 # Compute Analytic Price
 P_Analytic = analytic_B(K, sigma, theta,T, B_0)
