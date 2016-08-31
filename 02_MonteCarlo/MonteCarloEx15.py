@@ -21,7 +21,7 @@ def analytic_B(K, sigma, theta, T, r_0):
 
     n_t = np.sinh(gamma*T) / (gamma*np.cosh(gamma*T) + K*np.sinh(gamma*T)/2.) 
     
-    return np.exp(m_t + n_t*r_0) 
+    return np.exp(m_t + n_t*r_0) #/ 10.
 
 
 # function Euler step return the present solution plus a bit more
@@ -37,7 +37,7 @@ N = int(T/dt)+ 1
 # Initialise solution array
 t = np.linspace(0, T, N)
 U = np.empty(N)
-B_0 = 0.07
+B_0 = 10. #0.7 # 0.07
 U[0] = B_0
 
 # Set parameters
