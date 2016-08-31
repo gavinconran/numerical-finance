@@ -23,8 +23,6 @@ def analytic_B(K, sigma, theta, T, r_0):
     return np.exp(m_t + n_t*r_0) 
 
 
-random.seed(1234)
-
 # function Euler step return the present solution plus a bit more
 def euler_step(U, dt, theta, sigma, K):
     # abs(U) can be replace by max(U, 0): see page 52 of Antonie's notes
