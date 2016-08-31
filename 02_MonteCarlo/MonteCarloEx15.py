@@ -68,7 +68,7 @@ pyplot.plot(t,U, 'k-', lw=2);
 pyplot.show()
 
 
-# Convergence of Bond Price as time steps become large
+# Convergence of Bond Price as number of time steps become large
 N_List = range(102,5002, 10)
 B = np.empty(len(N_List))
 t = np.linspace(0, T, len(N_List))
