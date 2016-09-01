@@ -31,68 +31,65 @@ def euler_step(U, dt, theta, sigma, K):
 
 # Construct Grid
 T = 2.0
-dt = 0.01
+dt = 0.001
 N = int(T/dt)+ 1
 
 # Initialise solution array
 t = np.linspace(0, T, N)
-U = np.empty(N)
-B_0 = 0.07 # 0.07
-U[0] = B_0
+U = np.empty(N) # solution array
+r_0 = 0.07 # initial interest rate
+U[0] = r_0 
 
 # Set parameters
-theta = 0.09
-sigma = 0.1
-K = 2.1
+theta = 0.09 # long term mean of interest rate
+sigma = 0.1  # variance
+K = 2.1      # mean-reversion strength
 
 # Simulation of Bond Prices
 # Plot trajetory of Bond Prices over time (* num_sims)
 pyplot.figure(figsize=(8,6))
 
-num_sims = 5
-sims = range(num_sims)
-B_n = np.zeros(num_sims)
-B_Price = B_0
+num_sims = 5 # number of simulations
+sims = range(num_sims)  # list of simulation runs
+r_n = np.zeros(num_sims)  #  computed rate per simulation run
 for i in sims:
     # time loop - Euler method
     for n in range(0, N-1):
         U[n+1] = euler_step(U[n], dt, theta, sigma, K)
-    B_Price += U[-1]
     pyplot.plot(t,U, '-', lw=1);
-    B_n[i] = B_Price / (i+1)
 
 pyplot.grid(True)
 pyplot.xlabel(r't', fontsize=18)
-pyplot.ylabel(r'Bond Price', fontsize=18)
-pyplot.title('Bond Price over time, dt: %.3f, #sims: %d' % (dt, num_sims), fontsize=18)
+pyplot.ylabel(r'Rate', fontsize=18)
+pyplot.title('Rate over time, dt: %.3f, #sims: %d' % (dt, num_sims), fontsize=18)
 pyplot.plot(t, U, 'k-', lw=2);
 
 # Convergence of Bond Price as number of simulations become large
 num_sims = 1000
-sims = range(num_sims)
-B_n = np.zeros(num_sims)
+sims = range(num_sims)  # range of number of runs per simulation
+r_n = np.zeros(num_sims) # computed rate per simulation run
 for i in sims:
     # time loop - Euler method
     for n in range(0, N-1):
         U[n+1] = euler_step(U[n], dt, theta, sigma, K)
-    B_n[i] = U[-1] #B_Price / (i+1) # Record the Expectation of the Bond Price for this simulation
+    r_n[i] = U[-1] # Record the rate for this simulation
 
-P_Expectation = np.mean(B_n) # Compute the Expectation of the Bond Price from average of all of the simulated Bond Prices
-P_Var = np.var(B_n) 
-print("Approx. Price: ", P_Expectation)
+r_Expectation = np.mean(r_n) # compute Expected value for rate
+P_Expectation = 1. / (1+r_Expectation)**T  # Compute the Expected vale of the Bond Price from mean of the simulated rates
+
 
 # Compute Analytic Price
-P_Analytic = analytic_B(K, sigma, theta,T, B_0)
+P_Analytic = analytic_B(K, sigma, theta,T, r_0)
 print("Analytic Price: ", P_Analytic)
+print("Approx. Price: ", P_Expectation)
 
 
 # Plot Histogram of Simulated Bond Prices
 pyplot.figure(figsize=(8,6))
-pyplot.xlabel(r'# simulations', fontsize=18)
-pyplot.ylabel(r'Bond Price', fontsize=18)
-pyplot.title('Histogram of Simulated Bond Prices. # sims: %d' % num_sims, fontsize=18)
-pyplot.hist(B_n, 50)
-
+pyplot.ylabel(r'Number of Hits', fontsize=18)
+pyplot.xlabel(r'Interest Rates', fontsize=18)
+pyplot.title('Histogram of Simulated Interest Rates. # sims: %d' % num_sims, fontsize=18)
+pyplot.hist(r_n, 50)
 
 
 # Plot Convergence of Bond Prices wrt no. simulations
@@ -101,13 +98,14 @@ pyplot.grid(True)
 pyplot.xlabel(r'# simulations', fontsize=18)
 pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Convergence of Bond Price wrt # simulations', fontsize=18)
-sims = [x + 1 for x in sims]
+sims = [x + 1 for x in sims] # shift from 0 -> n-1 to  1 -> n (cosmetic)
+B_n = [1. / (1 + r)**T for r in r_n] # Compute Bond prices from simulated rates
 pyplot.plot(sims, B_n, 'k-', lw=2);
 
 
 # Convergence of Bond Price as number of time steps become large
 N_List = range(502,2002, 20)
-B = np.empty(len(N_List))
+r_n = np.empty(len(N_List)) 
 t = np.linspace(0, T, len(N_List))
 
 num_sims = 100
@@ -118,15 +116,15 @@ sim = 0
 for N in N_List:
     dt = T / (N-1) # compute dt
     U = np.empty(N) # Initialise U (Euler array)
-    U[0] = 0.07
+    U[0] = r_0
 
-    B_Price = 0
+    r_Total = 0 
     for i in sims: # rum simulations
         # time loop - Euler method
         for n in range(0, N-1):
             U[n+1] = euler_step(U[n], dt, theta, sigma, K)
-        B_Price += U[-1]
-    B[sim] = B_Price / (i+1) # Expectation of Bond Price for this simulation
+        r_Total += U[-1]
+    r_n[sim] = r_Total / (i+1) # Expectation of Bond Price for this simulation
     sim += 1
 
 # Plot convergence of Bond price as the number of time steps increases
@@ -135,7 +133,8 @@ pyplot.grid(True)
 pyplot.xlabel(r'number of time steps', fontsize=18)
 pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Convergence of Bond Price wrt # time steps', fontsize=18)
-pyplot.plot(N_List,B, 'k-', lw=2);
+B_n = [1. / (1 + r)**T for r in r_n] # Compute Bond prices from simulated rates
+pyplot.plot(N_List, B_n, 'k-', lw=2);
 pyplot.show()
 
 
