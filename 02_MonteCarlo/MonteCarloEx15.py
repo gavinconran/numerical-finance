@@ -108,11 +108,11 @@ pyplot.legend(loc='lower right');
 
 
 ### Convergence of Bond Price as number of time steps become large
-N_List = range(2, 102)
+N_List = range(2, 22) #102)
 r_n = np.empty(len(N_List)) 
 t = np.linspace(0, T, len(N_List))
 
-num_sims = 100
+num_sims = 1000
 sims = range(num_sims)
 
 sim = 0  
