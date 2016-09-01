@@ -9,7 +9,6 @@
 import numpy as np
 import random
 from matplotlib import pyplot
-import matplotlib.mlab as mlab
 
 # function return analytic Bond Price
 def analytic_B(K, sigma, theta, T, r_0):
@@ -21,7 +20,7 @@ def analytic_B(K, sigma, theta, T, r_0):
 
     n_t = np.sinh(gamma*T) / (gamma*np.cosh(gamma*T) + K*np.sinh(gamma*T)/2.) 
     
-    return np.exp(m_t + n_t*r_0) #/ 10.
+    return np.exp(m_t + n_t*r_0)
 
 
 # function Euler step return the present solution plus a bit more
@@ -38,7 +37,7 @@ N = int(T/dt)+ 1
 t = np.linspace(0, T, N)
 U = np.empty(N) # solution array
 r_0 = 0.07 # initial interest rate
-U[0] = 0.0 # Initial value 
+U[0] = r_0 # Initial value 
 
 # Set parameters
 theta = 0.09 # long term mean of interest rate
@@ -120,7 +119,7 @@ sim = 0
 for N in N_List:
     dt = T / (N-1) # compute dt
     U = np.empty(N) # Initialise U (Euler array)
-    U[0] = 0.0 #r_0
+    U[0] = r_0
 
     r_Total = 0 
     for i in sims: # rum simulations
