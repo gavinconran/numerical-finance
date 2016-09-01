@@ -68,10 +68,14 @@ pyplot.plot(t, U, 'k-', lw=2);
 num_sims = 1000
 sims = range(num_sims)  # range of number of runs per simulation
 r_n = np.zeros(num_sims) # computed rate per simulation run
+r_n_Totals = np.zeros(num_sims)
+r_Total = 0
 for i in sims:
     # time loop - Euler method
     for n in range(0, N-1):
         U[n+1] = euler_step(U[n], dt, theta, sigma, K)
+    r_Total += U[-1]
+    r_n_Totals[i] = r_Total / (i+1)
     r_n[i] = U[-1] # Record the rate for this simulation
 
 r_Expectation = np.mean(r_n) # compute Expected value for rate
@@ -97,15 +101,14 @@ pyplot.xlabel(r'# simulations', fontsize=18)
 pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Convergence of Bond Price wrt # simulations', fontsize=18)
 sims = [x + 1 for x in sims] # shift from 0 -> n-1 to  1 -> n (cosmetic)
-B_n = [np.exp(-r) for r in r_n] # Compute Bond prices from simulated rates
+B_n = [np.exp(-r) for r in r_n_Totals] # Compute Bond prices from simulated rates
 pyplot.plot(sims, B_n, 'k-', lw=2, label='Approx. Price ');
 pyplot.plot([1, num_sims], [P_Analytic, P_Analytic], 'r-', label='Analytic Price ')
-pyplot.legend()
+pyplot.legend(loc='lower right');
 
 
 ### Convergence of Bond Price as number of time steps become large
-factor = range(6)
-N_List = [2*10**f for f in factor] 
+N_List = range(2, 102)
 r_n = np.empty(len(N_List)) 
 t = np.linspace(0, T, len(N_List))
 
@@ -135,9 +138,9 @@ pyplot.xlabel(r'number of time steps', fontsize=18)
 pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Convergence of Bond Price wrt # time steps', fontsize=18)
 B_n = [np.exp(-r) for r in r_n] # Compute Bond prices from simulated rates
-pyplot.semilogx(N_List, B_n, 'k-', lw=2, label='Approx. Price ');
-pyplot.plot([min(N_List), max(N_List)], [P_Analytic, P_Analytic], 'r-', label='Analytic Price ')
-pyplot.legend(loc='bottom right');
+pyplot.plot(N_List, B_n, 'k-', lw=2, label='Approx. Price ');
+pyplot.plot([0, max(N_List)], [P_Analytic, P_Analytic], 'r-', label='Analytic Price ')
+pyplot.legend(loc='lower right');
 pyplot.show()
 
 
