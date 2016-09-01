@@ -37,16 +37,16 @@ N = int(T/dt)+ 1
 # Initialise solution array
 t = np.linspace(0, T, N)
 U = np.empty(N) # solution array
-r_0 = 0.08 #0.07 # initial interest rate
-U[0] = r_0 
+r_0 = 0.07 # initial interest rate
+U[0] = 0.0 # Initial value 
 
 # Set parameters
 theta = 0.09 # long term mean of interest rate
-sigma = 0.1  # variance
+sigma = 0.1  # variance of interest rate
 K = 2.1      # mean-reversion strength
 
-# Simulation of Bond Prices
-# Plot trajetory of Bond Prices over time (* num_sims)
+### Simulation of Stochastic Interest rates
+# Plot trajetory of Stochastic interest rates over time (* num_sims)
 pyplot.figure(figsize=(8,6))
 
 num_sims = 5 # number of simulations
@@ -64,7 +64,7 @@ pyplot.ylabel(r'Rate', fontsize=18)
 pyplot.title('Rate over time, dt: %.3f, #sims: %d' % (dt, num_sims), fontsize=18)
 pyplot.plot(t, U, 'k-', lw=2);
 
-# Convergence of Bond Price as number of simulations become large
+### Convergence of Bond Price as number of simulations become large
 num_sims = 1000
 sims = range(num_sims)  # range of number of runs per simulation
 r_n = np.zeros(num_sims) # computed rate per simulation run
@@ -83,14 +83,12 @@ P_Analytic = analytic_B(K, sigma, theta,T, r_0)
 print("Analytic Price: ", P_Analytic)
 print("Approx. Price: ", P_Expectation)
 
-
-# Plot Histogram of Simulated Bond Prices
+# Plot Histogram of Simulated Interest Rates at time T
 pyplot.figure(figsize=(8,6))
 pyplot.ylabel(r'Number of Hits', fontsize=18)
 pyplot.xlabel(r'Interest Rates', fontsize=18)
 pyplot.title('Histogram of Simulated Interest Rates. # sims: %d' % num_sims, fontsize=18)
 pyplot.hist(r_n, 50)
-
 
 # Plot Convergence of Bond Prices wrt no. simulations
 pyplot.figure(figsize=(8,6))
@@ -100,11 +98,14 @@ pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Convergence of Bond Price wrt # simulations', fontsize=18)
 sims = [x + 1 for x in sims] # shift from 0 -> n-1 to  1 -> n (cosmetic)
 B_n = [np.exp(-r) for r in r_n] # Compute Bond prices from simulated rates
-pyplot.plot(sims, B_n, 'k-', lw=2);
+pyplot.plot(sims, B_n, 'k-', lw=2, label='Approx. Price ');
+pyplot.plot([1, num_sims], [P_Analytic, P_Analytic], 'r-', label='Analytic Price ')
+pyplot.legend()
 
 
-# Convergence of Bond Price as number of time steps become large
-N_List = range(502,2002, 20)
+### Convergence of Bond Price as number of time steps become large
+factor = range(6)
+N_List = [2*10**f for f in factor] 
 r_n = np.empty(len(N_List)) 
 t = np.linspace(0, T, len(N_List))
 
@@ -116,7 +117,7 @@ sim = 0
 for N in N_List:
     dt = T / (N-1) # compute dt
     U = np.empty(N) # Initialise U (Euler array)
-    U[0] = r_0
+    U[0] = 0.0 #r_0
 
     r_Total = 0 
     for i in sims: # rum simulations
@@ -134,7 +135,9 @@ pyplot.xlabel(r'number of time steps', fontsize=18)
 pyplot.ylabel(r'Bond Price', fontsize=18)
 pyplot.title('Convergence of Bond Price wrt # time steps', fontsize=18)
 B_n = [np.exp(-r) for r in r_n] # Compute Bond prices from simulated rates
-pyplot.plot(N_List, B_n, 'k-', lw=2);
+pyplot.semilogx(N_List, B_n, 'k-', lw=2, label='Approx. Price ');
+pyplot.plot([min(N_List), max(N_List)], [P_Analytic, P_Analytic], 'r-', label='Analytic Price ')
+pyplot.legend(loc='bottom right');
 pyplot.show()
 
 
