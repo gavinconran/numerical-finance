@@ -104,6 +104,7 @@ B_n = [np.exp(-r) for r in r_n_Totals] # Compute Bond prices from simulated rate
 pyplot.plot(sims, B_n, 'k-', lw=2, label='Approx. Price ');
 pyplot.plot([1, num_sims], [P_Analytic, P_Analytic], 'r-', label='Analytic Price ')
 pyplot.legend(loc='lower right');
+pyplot.ylim(0.85, 0.95)
 
 
 ### Convergence of Bond Price as number of time steps become large
