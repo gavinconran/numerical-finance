@@ -1,3 +1,4 @@
+import numpy
 from scipy.linalg import solve
 
 def generateMatrix(N, sigma):
@@ -18,16 +19,16 @@ def generateMatrix(N, sigma):
     """
    
     # Setup the diagonal
-    d = np.diag(np.ones(N-2)*(2+1./sigma))
+    d = numpy.diag(numpy.ones(N-2)*(2+1./sigma))
     
     # Consider Neumann BC
     #d[-1,-1] = 1+1./sigma
     
     # Setup upper diagonal
-    ud = np.diag(np.ones(N-3)*-1, 1)
+    ud = numpy.diag(numpy.ones(N-3)*-1, 1)
     
     # Setup lower diagonal
-    ld = np.diag(np.ones(N-3)*-1, -1)
+    ld = numpy.diag(numpy.ones(N-3)*-1, -1)
     
     A = d + ud + ld
     
