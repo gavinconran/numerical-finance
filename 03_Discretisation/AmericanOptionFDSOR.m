@@ -88,5 +88,7 @@ end
 % return the prices, possibly by linear interpolation outside the grid
 price = interp1(space, P(:,1), S0);
 
+endfunction
+
 %%%%%%%%%  Example
-%%%%%%%%% AmericanOptionFDSOR(50, 50, 0.1, 5/12, 0.4, 100, 2, 5/1200, 1.2, 0.001, 'True')
+result = AmericanOptionFDSOR(50, 50, 0.1, 5/12, 0.4, 100, 2, 5/1200, 1.2, 0.001, 'True')

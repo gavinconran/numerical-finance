@@ -20,8 +20,11 @@ function price = AmericanOptinFDimpDirect(S0, K, r, T, sigma, Smax, ds, dt, Call
 
 %set up the grid and adjust coefficients
 M = round(Smax/ds); %% space discretisation grid
+M
 ds = Smax/M; 
 N = round(T/dt); %% time discretisation grid
+N
+
 dt = T/N; 
 
 space = linspace(0,Smax,M+1)'; 
@@ -71,6 +74,11 @@ end
 
 %%%%%%%%%%%% returns the price of the American option
 price = interp1(space, P(:,1), S0);
+size(P)
+
+endfunction
 
 %%%%%%%%%%%% Example %%%%%%%%%%%%
-%%%%%%%%%%%% AmericanOptinFDimpDirect(50, 50, 0.1, 5/12, 0.4, 100, 2, 5/1200,  'True');
+result = AmericanOptinFDimpDirect(50, 50, 0.1, 5/12, 0.4, 100, 2, 5/1200,  'True');
+result
+
