@@ -16,7 +16,7 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
 * Practical Numerical Methods
 * Algorithms
 * Business Analytics
-* Discrete Mathemaical Modelling
+* Discrete Mathematical Modelling
 
 ### Table of Contents
 1. Lattice (Tree) Methods
