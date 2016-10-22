@@ -30,7 +30,7 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
    * Includes Explicit, Implicitt, and Crank Nicolson schemes.
    * Includes Stability and Convergence analysis.
    * Includes numerical solutions of systems of linear equations.
-4. Fourier & Integration Methods
+4. Fourier Transform & Integration Methods
    * Stochastic Volatility with Complete Markets Example: Constant Elasticity of Volatility (CEV) Model
    * Stochastic Volatility with Incomplete Markets Example: Heston Model.
    * Mathematical methods (Characteristic Function, Quadrature Methods, and Fast Fourier Transform) to derive and compute the Heston model.
