@@ -19,16 +19,16 @@ This repository contains code examples from Numerical Methods in Finance (https:
 
 ### Table of Contents
 1. Lattice (Tree) Methods
-*    Discrete time metods for Option Pricing.
+   * Discrete time metods for Option Pricing.
 2. Monte Carlo Methods
-*    Random Paths Simulation of financial models using Monte Carlo techniques.
+   * Random Paths Simulation of financial models using Monte Carlo techniques.
 3. Finite Difference Methods for PDEs
-*    Discretisation schemes used to model the Black-Scholes (constant volatility) Heat (Diffusion) Equation.
+   * Discretisation schemes used to model the Black-Scholes (constant volatility) Heat (Diffusion) Equation.
 4. Fourier & Integration Methods
-*    Mathematical methods (Characteristic Function, Quadrature Methods, and Fast Fourier Transform) to derive and compute Heston's (schcohastic volatility) model.
+   * Mathematical methods (Characteristic Function, Quadrature Methods, and Fast Fourier Transform) to derive and compute Heston's (schcohastic volatility) model.
 5. Model Calibration
-*    Root finding and optimisation techniques to compute implied volatility (Black-Scholes) and implied volatility surface (Heston) for model calibration.
+   * Root finding and optimisation techniques to compute implied volatility (Black-Scholes) and implied volatility surface (Heston) for model calibration.
 6. Linear Programming
-*    Constrained Optimisation techniques to compute implied volatility and to maximise (optimise) expected portfolio returns.
+   * Constrained Optimisation techniques to compute implied volatility and to maximise (optimise) expected portfolio returns.
 
 
