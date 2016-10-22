@@ -24,7 +24,7 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
    * Includes CRR (Cox-Ross-Rubenstein) binomial options pricing model.
 2. Monte Carlo Methods
    * Random Paths Simulation of financial models using Monte Carlo techniques.
-   * Includes simulation of CIR (Cox-Ingersoll- Ross) for interest rate.
+   * Includes simulation of CIR (Cox-Ingersoll- Ross) model for interest rates.
 3. Finite Difference Methods for PDEs
    * Discretisation schemes used to model the Black-Scholes (constant volatility) Heat (Diffusion) Equation.
    * Includes Explicit, Implicitt, and Crank Nicolson schemes.
