@@ -33,7 +33,7 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
 4. Fourier & Integration Methods
    * Stochastic Volatility with Complete Markets Example: Constant Elasticity of Volatility (CEV) Model
    * Stochastic Volatility with Incomplete Markets Example: Heston Model.
-   * Mathematical methods (Characteristic Function, Quadrature Methods, and Fast Fourier Transform) to derive and compute Heston's (schcohastic volatility) model.
+   * Mathematical methods (Characteristic Function, Quadrature Methods, and Fast Fourier Transform) to derive and compute the Heston model.
    * Includes Carr Maden formula for option pricing using the FFT.
    * Includes (parallel) code for Quadrature Methods.
 5. Model Calibration
