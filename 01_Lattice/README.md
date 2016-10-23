@@ -7,5 +7,5 @@
 * **binPriceCrr.m:** European/American Put/Call Option Price using a CRR Binomial Tree.
 * **bscall.m:** European Put/Call Option Price using Black-Scholes Formula.
 * **CRR.m:** Convergence of the CRR model to Black-Scholes as a function of the number of nodes N. 
-* **lattice_Ex1.m:** Chapter 1, Exercise 5.
+* **lattice_Ex1.m:** Chp 1, Ex 5.
 
