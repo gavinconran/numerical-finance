@@ -1,21 +1,23 @@
 # Numerical Methods in Finance
-This repository contains code examples from Numerical Methods in Finance [NMiF](https://wwwf.imperial.ac.uk/~ajacquie/) as well as code from other courses which contained an element of numerical or mathematical methods:
+This repository contains code examples from Numerical Methods in Finance [NMiF](https://wwwf.imperial.ac.uk/~ajacquie/) as well as code from MOOCs which contained an element of numerical methods or mathematical modelling:
 
-### Finance Related:
-* Mathematical Modelling for Option Pricing
+### Finance Related
+* Financial Markets
+* Pricing Options with Mathematical Models
 * Computational Finance
 * Mathematical Methods
-* Financial Markets
+* Business Analytics
 
 ### Non Finance Related
 * Statistical Mechanics
 * Ordinary Differential Equations
+* Calculus
+* Statistics
 * Complex Analysis
 * Scientific Computing
 * High Performance Scientific Computing 
 * Practical Numerical Methods
 * Algorithms
-* Business Analytics
 * Discrete Mathematical Modelling
 
 ### Table of Contents
