@@ -14,6 +14,7 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
 * Calculus
 * Statistics
 * Complex Analysis
+* Linear Algebra
 * Scientific Computing
 * High Performance Scientific Computing 
 * Practical Numerical Methods
