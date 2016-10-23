@@ -5,7 +5,7 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
 * Financial Markets
 * Pricing Options with Mathematical Models
 * Computational Finance
-* Mathematical Methods
+* Mathematical Methods for Finance
 * Business Analytics
 
 ### Non Finance Related
