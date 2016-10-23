@@ -35,7 +35,7 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
    * Includes numerical solutions of systems of linear equations (Gauss-Seidel, SOR, and Conjugate Gradient).
 4. Fourier Transform & Integration Methods
    * Stochastic Volatility with Complete Markets Example: **_CEV_** (Constant Elasticity of Variance) Model
-   * Stochastic Volatility with Incomplete Markets Example: **_Heston Model_**.
+   * Stochastic Volatility with Incomplete Markets Example: **_Heston Model_** and the **_Market Price of Risk_**.
    * Mathematical methods (Characteristic Function, Quadrature Methods, and Fast Fourier Transform) to derive and compute the Heston model.
    * Includes **_Carr Maden_** formula for option pricing using the FFT.
    * Includes (parallel) code for Quadrature Methods.
