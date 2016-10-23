@@ -1,5 +1,5 @@
 ## Finite Difference Methods for PDEs
-This file includes code examples from the Practical Numerical Methods course from George Washington University (GWU), Computational Finance and mathematical methods from Washington University (UDub) as well as examples from NMiF.
+This directory includes code examples from the Practical Numerical Methods course from George Washington University (GWU), Computational Finance and mathematical methods from Washington University (UDub) as well as examples from NMiF.
 
 ## List of Directories and Files
 1. **American**

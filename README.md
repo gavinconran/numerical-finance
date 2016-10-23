@@ -27,9 +27,9 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
    * Includes simulation of CIR (Cox-Ingersoll- Ross) model for interest rates.
 3. Finite Difference Methods for PDEs
    * Discretisation schemes used to model the Black-Scholes (constant volatility) Heat (Diffusion) Equation.
-   * Includes Explicit, Implicitt, and Crank Nicolson schemes.
+   * Includes Explicit, Implicit, and Crank Nicolson schemes.
    * Includes Stability and Convergence analysis.
-   * Includes numerical solutions of systems of linear equations.
+   * Includes numerical solutions of systems of linear equations (Gauss-Seidel, SOR, and Conjugate Gradient).
 4. Fourier Transform & Integration Methods
    * Stochastic Volatility with Complete Markets Example: Constant Elasticity of Volatility (CEV) Model
    * Stochastic Volatility with Incomplete Markets Example: Heston Model.
