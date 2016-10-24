@@ -37,7 +37,7 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
    * Stochastic Volatility with Complete Markets Example: **_CEV_** (Constant Elasticity of Variance) Model
    * Stochastic Volatility with Incomplete Markets Example: **_Heston Model_** and the **_Market Price of Risk_**.
    * Mathematical methods (Characteristic Function, Quadrature Methods, and Fast Fourier Transform) to derive and compute the Heston model.
-   * Includes **_Carr Maden_** formula for option pricing using the FFT.
+   * Includes the **_Carr Madan_** formula, the analytical solution of the European option price which is obtained once the explicit form of the characteristic function of log S, the price of the underlying asset, is available.
    * Includes (parallel) code for Quadrature Methods.
 5. Model Calibration
    * Root finding and optimisation techniques to compute **_implied volatility_** (Black-Scholes) and **_implied volatility surface_** (Heston) for model calibration.
