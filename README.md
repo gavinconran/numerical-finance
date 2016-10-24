@@ -1,5 +1,5 @@
 # Numerical Methods in Finance
-This repository contains code examples from Numerical Methods in Finance [NMiF](https://wwwf.imperial.ac.uk/~ajacquie/) as well as code from MOOCs which contained an element of numerical methods or mathematical modelling:
+This repository contains code examples from Numerical Methods in Finance and Advanced Methods in Derivatives Pricing [NMiF and  AMiDP](https://wwwf.imperial.ac.uk/~ajacquie/) as well as code from MOOCs which contained an element of numerical methods or mathematical modelling:
 
 ### Finance Related
 * Financial Markets
