@@ -14,8 +14,11 @@ This directory includes code examples from the Practical Numerical Methods cours
 4. **Heat_FDCrankNicolson**
   * Heat_FDCrankNicolson.ipynb: (GWU) Finite-difference Crank Nicolson scheme for the one-dimensional heat equation.
 5. **Heat_FDExplicit**
-  * HeatFD_Explicit_Example_Notes.ipynb: Example in Lecture Notes (3.3.1 Explicit Scheme)
+  * HeatFD_Explicit_Example_Notes.ipynb: Example in Lecture Notes (3.3.1 Explicit Scheme).
   * HeatFD_ExplicitScheme.py: (GWU) Finite-difference Explicit scheme for the one-dimensional heat equation.
+  * HeatFD_Explicit.m: Finite-difference Explicit scheme for the one-dimensional heat equation (Matlab/Octave).
+  * RunHeatFD_Explicit.m: calls HeatFD_Explicit.m and makes a plot.
+  * HeatFD_ExplicitScheme.py: Finite-difference Explicit scheme for the one-dimensional heat equation (Python).
 6. **Heat_FDImplicit**
   * Ipython_FDImplicit.ipynb: (GWU) Finite-difference Implicit scheme for the one-dimensional heat equation.
 7. **Heat_FourierDirect**
