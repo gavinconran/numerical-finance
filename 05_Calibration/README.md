@@ -6,3 +6,6 @@ This directory includes code examples from Computational Finance and mathematica
 * **roorFinding_nonlinear.r:** (UDuB) NON-LINEAR optimisation methods, such as Bisection and Netwon's methods for problems such as Implied Volatility. 
 
 
+
+
+

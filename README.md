@@ -43,5 +43,6 @@ This repository contains code examples from Numerical Methods in Finance [NMiF](
    * Root finding and optimisation techniques to compute **_implied volatility_** (Black-Scholes) and **_implied volatility surface_** (Heston) for model calibration.
 6. Linear Programming
    * Constrained Optimisation techniques to compute implied volatility and to **_maximise (optimise) expected portfolio returns_**.
+   * Includes a R script computing Global Minimum Variance Portfolio, **_Global Maximum Return portfolio_**, and the Tangency portfolio.
 
 
