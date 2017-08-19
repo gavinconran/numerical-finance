@@ -44,5 +44,9 @@ This repository contains code examples from **Numerical Methods in Finance** and
 6. Linear Programming
    * Constrained Optimisation techniques to compute implied volatility and to **_maximise (optimise) expected portfolio returns_**.
    * Includes a R script computing Global Minimum Variance Portfolio, **_Global Maximum Return portfolio_**, and the Tangency portfolio.
+7. High Performance Computing
+   * Estimate the integral of f(x) from a to b using the **_Trapezoid Rule_** with n points.
+   * Estimate the  **_Monte Carlo approximation_** to the integral of g(x) from a to b.
+   * **_Random walk approximate solution_** to Laplace's equation u_{xx} + u{yy} = 0.
 
 
