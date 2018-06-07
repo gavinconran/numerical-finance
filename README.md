@@ -47,7 +47,7 @@ This repository contains code examples from **Numerical Methods in Finance** and
 7. High Performance Computing
    * Estimate the integral of f(x) from a to b using the **_Trapezoid Rule_** with n points.
    * Estimate the  **_Monte Carlo approximation_** to the integral of g(x) from a to b.
-   * **_Random walk approximate solution_** to Laplace's equation u_{xx} + u{yy} = 0.
+   * **_Random walk approximate solution_** to Laplace's equation u_<sub>xx</sub> + u<sub>yy</sub> = 0.
    * **_Parallel version (MPI)_** of Random walk approximate solution to Laplace's equation u_{xx} + u{yy} = 0.
 
 
