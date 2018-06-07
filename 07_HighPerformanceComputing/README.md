@@ -15,7 +15,7 @@ $ make plot
 ```
 
 ### Part 3
-**_Random walk approximate solution_** to Laplace's equation u_<sub>xx</sub> + u<sub>yy</sub> = 0.
+**_Random walk approximate solution_** to Laplace's equation u<sub>xx</sub> + u<sub>yy</sub> = 0.
 ```
 $ make plot
 ```
