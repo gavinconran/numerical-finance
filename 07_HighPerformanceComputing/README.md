@@ -8,7 +8,7 @@ Estimate the integral of f(x) from a to b using the **_Trapezoid Rule_** with n 
 $ make test3
 ```
 
-### Part 2
+### Part 2 --> need to fix
 Estimate the  **_Monte Carlo approximation_** to the integral of g(x) from a to b.
 ```
 $ make plot
